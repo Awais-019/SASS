@@ -2,12 +2,10 @@
 @import "./resets";
 @import "./variables";
 
-// maps key value pairs
-$font-weights: (
-  "regular": 400,
-  "medium": 500,
-  "bold": 700,
-);
+// functions
+@function weight($weight-name) {
+  @return map-get($font-weights, $weight-name);
+}
 
 body {
   background-color: $primary-color;
@@ -24,7 +22,7 @@ body {
   //   }
   // interpolation to apply styles to parent class as well
   #{&}_paragraph {
-    font-weight: map-get($font-weights, bold);
+    font-weight: weight(bold);
 
     &:hover {
       color: pink;
