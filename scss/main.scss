@@ -1,0 +1,33 @@
+// partials
+@import "./resets";
+@import "./variables";
+
+// maps key value pairs
+$font-weights: (
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
+);
+
+body {
+  background-color: $primary-color;
+  color: $text-color;
+}
+
+// nesting
+.main {
+  width: 80%;
+  margin: 0 auto;
+  //   & equal to .main i.e. parent class
+  //   &_paragraph {
+  //     font-weight: map-get($font-weights, bold);
+  //   }
+  // interpolation to apply styles to parent class as well
+  #{&}_paragraph {
+    font-weight: map-get($font-weights, bold);
+
+    &:hover {
+      color: pink;
+    }
+  }
+}
