@@ -40,7 +40,8 @@ body {
 // nesting
 .main {
   @include flexCenter(row);
-  width: 80%;
+  // for sass operations types has to be same
+  width: 80% - 40%;
   margin: 0 auto;
   //   & equal to .main i.e. parent class
   //   &_paragraph {
