@@ -3,6 +3,7 @@
 @import "./variables";
 
 // functions
+// functions should be used to compute and return values
 @function weight($weight-name) {
   @return map-get($font-weights, $weight-name);
 }
@@ -12,8 +13,33 @@ body {
   color: $text-color;
 }
 
+//mixins
+//mixins should be used to define styles
+// @mixin font($weight-name) {
+//   font-weight: weight($weight-name);
+// }
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+@mixin theme($light-theme: true) {
+  @if $light-theme {
+    background-color: lighten($primary-color, 100%);
+    color: darken($text-color, 100%);
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
 // nesting
 .main {
+  @include flexCenter(row);
   width: 80%;
   margin: 0 auto;
   //   & equal to .main i.e. parent class
@@ -28,4 +54,11 @@ body {
       color: pink;
     }
   }
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.light {
+  @include theme($light-theme: true);
 }
