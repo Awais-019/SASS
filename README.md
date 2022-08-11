@@ -1,2 +1,2 @@
 # SASS
-This a complete sass guide.
+This a sass guide for beginners.
